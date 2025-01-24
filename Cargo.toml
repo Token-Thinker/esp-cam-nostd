@@ -1,0 +1,22 @@
+[package]
+name = "esp-cam-nostd"
+version = "0.1.0"
+edition = "2021"
+
+[build-dependencies]
+bindgen = {version = "0.71.1"}
+cc = {version = "1.2.10"}
+toml = {version = "0.8.19"}
+
+[dependencies]
+esp-hal = {version = "0.23.1", features = ["unstable", "esp32"]}
+esp-backtrace = {version = "0.15.0", features = ["esp32", "println"]}
+esp-println = { version = "0.13.0", features = ["esp32", "log"] }
+anyhow = { version = "1.0", default-features = false }
+
+
+
+[package.metadata.extra_components]
+component_dirs = "components/esp32-camera"
+bindings_header = "components/bindings.h"
+bindings_module = "camera"
